@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureAuth Hub - Connexion</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .login-card {
+            background: white;
+            border-radius: 25px;
+            padding: 2rem;
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            animation: fadeInUp 0.5s ease-out;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .login-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .login-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+        .btn-google {
+            background: #fff;
+            color: #757575;
+            border: 1px solid #ddd;
+            padding: 0.8rem;
+            border-radius: 50px;
+            transition: all 0.3s;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            cursor: pointer;
+        }
+        .btn-google:hover {
+            background: #f8f9fa;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+            text-decoration: none;
+            color: #757575;
+        }
+        .btn-google i {
+            color: #DB4437;
+            font-size: 1.2rem;
+            margin-right: 10px;
+        }
+        .features-list {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .feature-item i {
+            width: 25px;
+            color: #667eea;
+        }
+        .security-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #f0f4ff;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-top: 1rem;
+        }
+        .footer-note {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+<div class="login-card">
+    <div class="login-header">
+        <div class="login-icon">
+            <i class="fas fa-shield-alt"></i>
+        </div>
+        <h2 class="fw-bold mb-2">SecureAuth Hub</h2>
+        <p class="text-muted mb-1">Authentification sécurisée avec OAuth2</p>
+        <p class="text-muted small">Secure authentication with OAuth2</p>
+    </div>
+
+    <!-- BOUTON DE CONNEXION GOOGLE - LE LIEN EST ICI -->
+    <a th:href="@{/oauth2/authorization/google}" class="btn-google">
+        <i class="fab fa-google"></i> Se connecter avec Google
+    </a>
+
+    <div class="security-badge justify-content-center w-100">
+        <i class="fas fa-lock"></i>
+        <span>Authentification via OpenID Connect</span>
+        <i class="fas fa-check-circle text-success"></i>
+    </div>
+
+    <div class="features-list">
+        <div class="feature-item">
+            <i class="fas fa-user-check"></i>
+            <span>Authentification sans mot de passe</span>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-id-card"></i>
+            <span>Récupération automatique du profil</span>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-shield-alt"></i>
+            <span>Protection par OAuth2 / OIDC</span>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-history"></i>
+            <span>Historique des connexions</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <i class="fas fa-shield-alt me-1"></i>
+        Vos identifiants ne sont jamais stockés par cette application<br>
+        <span class="small">Your credentials are never stored by this application</span>
+    </div>
+</div>
+</body>
+</html>
